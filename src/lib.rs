@@ -6,7 +6,7 @@ use async_stream::stream;
 use futures::{Stream, StreamExt};
 use tokio::time::{sleep, Instant};
 
-pub async fn smooth_stream<S>(input: S, max_interval: Duration) -> impl Stream<Item = S::Item>
+pub fn smooth_stream<S>(input: S, max_interval: Duration) -> impl Stream<Item = S::Item>
 where
     S: Stream + Unpin + Send + 'static,
     S::Item: Send,
